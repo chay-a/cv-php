@@ -1,5 +1,7 @@
 <?php
-include 'header.php';
+    $metaTitre = 'Contact';
+    $metaDescription = 'Contactez Auriane Chay pour bénéficier de ses compétences.';
+    include 'header.php';
 ?>
     <h1>Contact</h1>
     <!--Lien pour faire un mail-->

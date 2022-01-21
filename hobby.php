@@ -1,4 +1,6 @@
 <?php
+$metaTitre = 'Hobbies';
+$metaDescription = 'Découvrez les hobbies d\'Auriane Chay';
 include 'header.php';
 ?>
     <main>

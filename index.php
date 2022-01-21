@@ -1,5 +1,7 @@
 <?php
-include 'header.php';
+    $metaTitre = 'Accueil';
+    $metaDescription = 'CV en ligne de Auriane Chay avec ses compétences';
+    include 'header.php';
 ?>
     <main class="CV_main">
         <!--Elément sur la gauche-->
