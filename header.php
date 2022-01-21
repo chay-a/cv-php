@@ -1,3 +1,9 @@
+<?php
+    $pageFrontControllerCheminVersPages = 'index.php?page=';
+    $pageHobby = 'hobby';
+    $pageContact = 'contact';
+?>
+
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -5,23 +11,27 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="<?php echo $metaDescription;?>" />
+    <meta name="description" content="<?php echo $metaDescription; ?>"/>
     <link rel="stylesheet" href="style/style.css">
-    <link rel="stylesheet" href="style/contact.css">
+    <?php if (filter_input(INPUT_GET, 'page') == 'hobby') : ?>
+        <link rel="stylesheet" href="style/hobby.css">
+    <?php elseif (filter_input(INPUT_GET, 'page') == 'contact') : ?>
+        <link rel="stylesheet" href="style/contact.css">
+    <?php endif; ?>
     <title><?php echo $metaTitre . ' | Auriane Chay'; ?></title>
 </head>
 
 <body>
-    <header>
-        <div class="header_name_img">
-            <p>Auriane Chay</p>
-            <img src="IMG/Auriane_1.jpg"
-                alt="Une femme avec le cheveux brun et bouclé regarde pensivement vers la droite.">
-        </div>
-        <!--Navigation -->
-        <nav>
-            <a href="accueil.php">Accueil</a>
-            <a href="hobby.php">Hobbies</a>
-            <a href="contact.php" class="active">Contact</a>
-        </nav>
-    </header>
+<header>
+    <div class="header_name_img">
+        <p>Auriane Chay</p>
+        <img src="IMG/Auriane_1.jpg"
+             alt="Une femme avec le cheveux brun et bouclé regarde pensivement vers la droite.">
+    </div>
+    <!--Navigation -->
+    <nav>
+        <a href="index.php" <?php if (!filter_input(INPUT_GET, 'page')) : ?> class="active" <?php endif; ?>>Accueil</a>
+        <a href="<?php echo $pageFrontControllerCheminVersPages . $pageHobby?>" <?php if (filter_input(INPUT_GET, 'page') == 'hobby') : ?> class="active" <?php endif; ?>>Hobbies</a>
+        <a href="<?php echo $pageFrontControllerCheminVersPages . $pageContact?>" <?php if (filter_input(INPUT_GET, 'page') == 'contact') : ?> class="active" <?php endif; ?>>Contact</a>
+    </nav>
+</header>
