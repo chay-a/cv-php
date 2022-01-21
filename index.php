@@ -1,20 +1,15 @@
 <?php
-if (isset($_GET['page'])){
-    if ($_GET['page'] == 'hobby'){
+
+$secureParameter = filter_input(INPUT_GET, 'page');
+
+if ($secureParameter) {
+    if ($secureParameter == 'hobby'){
         include 'pages/hobby.php';
-    } elseif ($_GET['page'] == 'contact') {
+    } elseif ($secureParameter == 'contact'){
         include 'pages/contact.php';
     } else {
         include 'pages/404.php';
     }
 } else {
-       include 'pages/accueil.php';
+    include 'pages/accueil.php';
 }
-
-//if ($_SERVER['REQUEST_URI'] == 'hobby') {
-//    include 'pages/hobby.php';
-//} elseif ($_SERVER['REQUEST_URI'] == 'contact') {
-//    include 'pages/contact.php';
-//} else {
-//    include 'pages/accueil.php';
-//}
