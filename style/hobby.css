@@ -1,0 +1,12 @@
+main {
+    text-align: center;
+}
+
+article {
+    width: 90vw;
+    margin: 80px auto;
+}
+
+article p {
+    margin: 30px 0;
+}

@@ -1,0 +1,34 @@
+form {
+    border: 1px pink solid;
+    width: 80%;
+    margin: 20px auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 480px;
+}
+
+.form_center {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-evenly;
+    height: 100%;
+}
+
+.mailink {
+    text-align: center;
+    display: block;
+}
+
+.input_text {
+    padding: 2% 1%;
+}
+
+.label {
+    margin-bottom: 10px;
+}
+
+.envoyer {
+    align-self: center;
+}
