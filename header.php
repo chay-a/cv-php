@@ -20,7 +20,7 @@
         </div>
         <!--Navigation -->
         <nav>
-            <a href="index.php">Accueil</a>
+            <a href="accueil.php">Accueil</a>
             <a href="hobby.php">Hobbies</a>
             <a href="contact.php" class="active">Contact</a>
         </nav>
