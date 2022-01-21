@@ -4,6 +4,8 @@ if (isset($_GET['page'])){
         include 'pages/hobby.php';
     } elseif ($_GET['page'] == 'contact') {
         include 'pages/contact.php';
+    } else {
+        include 'pages/404.php';
     }
 } else {
        include 'pages/accueil.php';
