@@ -1,7 +1,7 @@
 <?php
-$metaTitre = 'Hobbies';
-$metaDescription = 'Découvrez les hobbies d\'Auriane Chay';
-include 'header.php';
+    $metaTitre = 'Hobbies';
+    $metaDescription = 'Découvrez les hobbies d\'Auriane Chay';
+    require 'header.php';
 ?>
     <main>
         <h1>Hobbies</h1>
@@ -42,5 +42,5 @@ include 'header.php';
         </article>
     </main>
 <?php
-include 'footer.php';
+    require 'footer.php';
 ?>

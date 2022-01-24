@@ -1,7 +1,7 @@
 <?php
     $metaTitre = 'Contact';
     $metaDescription = 'Contactez Auriane Chay pour bénéficier de ses compétences.';
-    include 'header.php';
+    require 'header.php';
 ?>
     <h1>Contact</h1>
     <!--Lien pour faire un mail-->
@@ -64,5 +64,5 @@
         </div>
     </form>
 <?php
-include 'footer.php';
+    require 'footer.php';
 ?>
