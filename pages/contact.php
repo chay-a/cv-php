@@ -7,33 +7,52 @@
     <!--Lien pour faire un mail-->
     <a href="mailto:auriane.chay@le-campus-numerique.fr" class="mailink">Envoyez-moi un mail</a>
     <!--Formulaire de contact-->
-    <form method="get" action="https://httpbin.org/get">
+    <form method="post" action="<?php echo $pageFrontControllerCheminVersPages . $pageContact; ?>">
         <div class="form_center">
+            <div class="form_civilite input">
+                <div class="label_civilite label">
+                    <label for="civilite_selection">Votre civilité</label>
+                </div>
+                <select name="civilite_selection">
+                    <option>Monsieur</option>
+                    <option>Madame</option>
+                    <option>Autre</option>
+                </select>
+            </div>
             <div class="form_name input">
                 <div class="label_nom label">
 
                     <label for="name">Votre nom</label>
                 </div>
-                <input type="text" placeholder="Votre nom" name="name" required class="input_text">
+                <input type="text" placeholder="Votre nom" name="name" class="input_text">
             </div>
-            <div class="form_genre input">
-                <div class="label_genre label">
-                    <p>Votre genre</p>
+            <div class="form_firstname input">
+                <div class="label_prenom label">
+
+                    <label for="firstname">Votre prénom</label>
                 </div>
-                <label for="female"> female</label>
-                <input type="radio" name="female" id="female">
-                <label for="male"> male</label>
-                <input type="radio" name="male" id="male">
+                <input type="text" placeholder="Votre prénom" name="firstname" class="input_text">
             </div>
-            <div class="form_city input">
-                <div class="label_city label">
-                    <label for="city_selection">Votre ville</label>
+            <div class="form_email input">
+                <div class="label_email label">
+                    <label for="email">Votre email</label>
                 </div>
-                <select name="city_selection">
-                    <option>Paris </option>
-                    <option>Lyon</option>
-                    <option>Valence</option>
-                </select>
+                <input type="email" placeholder="votre email" name="email" class="input_text">
+            </div>
+            <div class="form_raison_contact">
+                <p>Pour quelles raison me contactez-vous?</p>
+                <div>
+                    <input type="radio" name="raison_contact" value="proposition d'emploi">
+                    <label for="proposition d'emploi">Proposition d'emploi</label>
+                </div>
+                <div>
+                    <input type="radio" name="raison_contact" value="demande d'information">
+                    <label for="demande d'information">Demande d'information</label>
+                </div>
+                <div>
+                    <input type="radio" name="raison_contact" value="prestations">
+                    <label for="prestations">Prestations</label>
+                </div>
             </div>
             <div class="form_texte input">
                 <div class="label_message label">
