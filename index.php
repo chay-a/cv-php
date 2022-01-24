@@ -1,6 +1,6 @@
 <?php
 
-$secureParameter = filter_input(INPUT_GET, 'page', FILTER_SANITIZE_ENCODED);
+$secureParameter = filter_input(INPUT_GET, 'page', FILTER_SANITIZE_URL);
 $pageHobby = 'hobby';
 $pageContact = 'contact';
 
