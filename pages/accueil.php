@@ -1,8 +1,3 @@
-<?php
-    $metaTitre = 'Accueil';
-    $metaDescription = 'CV en ligne de Auriane Chay avec ses compétences';
-    require 'header.php';
-?>
     <main class="CV_main">
         <!--Elément sur la gauche-->
         <div class="element_gauche">
@@ -86,6 +81,3 @@
             </section>
         </aside>
     </main>
-<?php
-    require 'footer.php';
-?>

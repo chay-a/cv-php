@@ -1,8 +1,3 @@
-<?php
-    $metaTitre = 'Contact';
-    $metaDescription = 'Contactez Auriane Chay pour bénéficier de ses compétences.';
-    require 'header.php';
-?>
     <h1>Contact</h1>
     <!--Lien pour faire un mail-->
     <a href="mailto:auriane.chay@le-campus-numerique.fr" class="mailink">Envoyez-moi un mail</a>
@@ -64,7 +59,6 @@
         </div>
     </form>
 <?php
-    require 'footer.php';
     $civilite = filter_input(INPUT_POST, 'civilite_selection');
     $nom = filter_input(INPUT_POST, 'name');
     $prenom = filter_input(INPUT_POST, 'firstname');

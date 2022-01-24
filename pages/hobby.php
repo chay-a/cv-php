@@ -1,8 +1,3 @@
-<?php
-    $metaTitre = 'Hobbies';
-    $metaDescription = 'Découvrez les hobbies d\'Auriane Chay';
-    require 'header.php';
-?>
     <main>
         <h1>Hobbies</h1>
 <!--Lecture-->
@@ -41,6 +36,3 @@
                 allowfullscreen></iframe>
         </article>
     </main>
-<?php
-    require 'footer.php';
-?>
