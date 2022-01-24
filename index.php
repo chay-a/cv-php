@@ -1,6 +1,6 @@
 <?php
 
-$secureParameter = filter_input(INPUT_GET, 'page');
+$secureParameter = filter_input(INPUT_GET, 'page', FILTER_SANITIZE_URL);
 
 if ($secureParameter) {
     if ($secureParameter == 'hobby'){
