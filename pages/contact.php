@@ -65,4 +65,10 @@
     </form>
 <?php
     require 'footer.php';
+    $civilite = filter_input(INPUT_POST, 'civilite_selection');
+    $nom = filter_input(INPUT_POST, 'name');
+    $prenom = filter_input(INPUT_POST, 'firstname');
+    $email = filter_input(INPUT_POST, 'email');
+    $raisonContact = filter_input(INPUT_POST, 'raison_contact');
+    $message = filter_input(INPUT_POST, 'message');
 ?>
