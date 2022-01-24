@@ -6,7 +6,7 @@ $nom = filter_input(INPUT_POST, 'name');
 $entreNom = 'Nom : ' . $nom . '; ';
 $prenom = filter_input(INPUT_POST, 'firstname');
 $entrePrenom = 'Prénom : ' . $prenom . '; ';
-$email = filter_input(INPUT_POST, 'email');
+$email = filter_input(INPUT_POST, 'email', FILTER_VALIDATE_EMAIL);
 $entreEmail = 'email : ' . $email . '; ';
 $raisonContact = filter_input(INPUT_POST, 'raison_contact');
 $entreRaisonContact = 'Raison contact : ' . $raisonContact . '; ';
@@ -14,7 +14,7 @@ $message = filter_input(INPUT_POST, 'message');
 $entreMessage = 'Message : ' . $message . '; ';
 $is_Sent = false;
 
-if ($civilite != 'Choisir une civilité' && !empty($nom) && !empty($prenom) && isset($email) && isset($raisonContact) && !empty($message)) {
+if ($civilite != 'Choisir une civilité' && !empty($nom) && !empty($prenom) && isset($email) && isset($raisonContact) && !empty($message) && mb_strlen($message, 'UTF-8') > 5) {
     $today = date("Y-m-d-H-i-s");
     $file = 'contact/contact_' . $today . '.txt';
     file_put_contents($file, $entreCivilite . $entreNom . $entrePrenom . $entreEmail . $entreRaisonContact . $entreMessage);
@@ -112,8 +112,8 @@ if ($civilite != 'Choisir une civilité' && !empty($nom) && !empty($prenom) && i
             </div>
             <textarea name="message" id="message" cols="30"
                       rows="10"><?php if (!empty($message) && !$is_Sent) : echo $message; endif; ?></textarea>
-            <?php if (empty($message) && $buttonPressed) : ?>
-                <p class="error">Veuillez entrer un message</p>
+            <?php if ((empty($message) || mb_strlen($message, 'UTF-8') <= 5) && $buttonPressed) : ?>
+                <p class="error">Veuillez entrer un message de plus de 5 charactères</p>
             <?php endif; ?>
         </div>
         <input type="submit" value="Envoyer" class="envoyer" name="submit">
