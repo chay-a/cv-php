@@ -2,7 +2,7 @@
     <!--Lien pour faire un mail-->
     <a href="mailto:auriane.chay@le-campus-numerique.fr" class="mailink">Envoyez-moi un mail</a>
     <!--Formulaire de contact-->
-    <form method="post" action="<?php echo $pageFrontControllerCheminVersPages . $pageContact; ?>">
+    <form method="post" action="<?php echo 'index.php?page=' . $pageContact; ?>">
         <div class="form_center">
             <div class="form_civilite input">
                 <div class="label_civilite label">
@@ -60,9 +60,19 @@
     </form>
 <?php
     $civilite = filter_input(INPUT_POST, 'civilite_selection');
+    $entreCivilite = 'Civilité : '. $civilite .'; ';
     $nom = filter_input(INPUT_POST, 'name');
+    $entreNom = 'Nom : '. $nom .'; ';
     $prenom = filter_input(INPUT_POST, 'firstname');
+    $entrePrenom = 'Prénom : '. $prenom .'; ';
     $email = filter_input(INPUT_POST, 'email');
+    $entreEmail = 'email : '. $email .'; ';
     $raisonContact = filter_input(INPUT_POST, 'raison_contact');
+    $entreRaisonContact = 'Raison contact : '. $raisonContact .'; ';
     $message = filter_input(INPUT_POST, 'message');
+    $entreMessage = 'Message : '. $message .'; ';
+
+    $today = date("Y-m-d-H-i-s");
+    $file = 'contact/contact_'. $today . '.txt';
+    file_put_contents($file, $entreCivilite . $entreNom . $entrePrenom . $entreEmail . $entreRaisonContact . $entreMessage);
 ?>
