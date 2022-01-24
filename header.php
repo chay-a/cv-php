@@ -13,9 +13,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="<?php echo $metaDescription; ?>"/>
     <link rel="stylesheet" href="style/style.css">
-    <?php if (filter_input(INPUT_GET, 'page') == 'hobby') : ?>
+    <?php if ($secureParameter == 'hobby') : ?>
         <link rel="stylesheet" href="style/hobby.css">
-    <?php elseif (filter_input(INPUT_GET, 'page') == 'contact') : ?>
+    <?php elseif ($secureParameter == 'contact') : ?>
         <link rel="stylesheet" href="style/contact.css">
     <?php endif; ?>
     <title><?php echo $metaTitre . ' | Auriane Chay'; ?></title>
@@ -30,8 +30,8 @@
     </div>
     <!--Navigation -->
     <nav>
-        <a href="index.php" <?php if (!filter_input(INPUT_GET, 'page')) : ?> class="active" <?php endif; ?>>Accueil</a>
-        <a href="<?php echo $pageFrontControllerCheminVersPages . $pageHobby?>" <?php if (filter_input(INPUT_GET, 'page') == 'hobby') : ?> class="active" <?php endif; ?>>Hobbies</a>
-        <a href="<?php echo $pageFrontControllerCheminVersPages . $pageContact?>" <?php if (filter_input(INPUT_GET, 'page') == 'contact') : ?> class="active" <?php endif; ?>>Contact</a>
+        <a href="index.php" <?php if (!$secureParameter) : ?> class="active" <?php endif; ?>>Accueil</a>
+        <a href="<?php echo $pageFrontControllerCheminVersPages . $pageHobby?>" <?php if ($secureParameter == 'hobby') : ?> class="active" <?php endif; ?>>Hobbies</a>
+        <a href="<?php echo $pageFrontControllerCheminVersPages . $pageContact?>" <?php if ($secureParameter == 'contact') : ?> class="active" <?php endif; ?>>Contact</a>
     </nav>
 </header>
