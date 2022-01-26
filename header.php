@@ -25,7 +25,7 @@
     <!--Navigation -->
     <nav>
         <a href="index.php" <?php if (!$secureParameter) : ?> class="active" <?php endif; ?>>Accueil</a>
-        <a href="<?php echo 'index.php?page=' . $pageHobby?>" <?php if ($secureParameter == 'hobby') : ?> class="active" <?php endif; ?>>Hobbies</a>
-        <a href="<?php echo 'index.php?page=' . $pageContact?>" <?php if ($secureParameter == 'contact') : ?> class="active" <?php endif; ?>>Contact</a>
+        <a href="<?php echo 'index.php?page=' . 'hobby'?>" <?php if ($secureParameter == 'hobby') : ?> class="active" <?php endif; ?>>Hobbies</a>
+        <a href="<?php echo 'index.php?page=' . 'contact'?>" <?php if ($secureParameter == 'contact') : ?> class="active" <?php endif; ?>>Contact</a>
     </nav>
 </header>
