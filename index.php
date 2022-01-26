@@ -25,7 +25,7 @@ if (!isset($_SESSION['dateFirstVisit'])) {
 }
 
 if (!isset($_SESSION['countViewPage'])) {
-    $_SESSION['countViewPage'] = 0;
+    $_SESSION['countViewPage'] = 1;
 }
 
 if (!isset($_SESSION['page'])) {
