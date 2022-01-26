@@ -28,11 +28,19 @@ if (!isset($_SESSION['countViewPage'])) {
     $_SESSION['countViewPage'] = 0;
 }
 
-$key = Recherche_Page($routes, $secureParameter, $metaTitles, $metaDescriptions);
+if (!isset($_SESSION['page'])) {
+    $_SESSION['page'] ="";
+}
+
+$key = Recherche_Page($routes, $secureParameter);
 if ($key !== false) {
     $metaTitre = $metaTitles[$key];
     $metaDescription = $metaDescriptions[$key];
     $pageAffichage = $routes[$key];
+    if ($secureParameter != $_SESSION['page']) {
+        $_SESSION['countViewPage']++;
+    }
+    $_SESSION['page'] = $secureParameter;
 } else {
     $metaTitre = 'Page non trouvée';
     $metaDescription = 'Désoléee, page non trouvée';
@@ -43,10 +51,9 @@ require 'header.php';
 require $pageAffichage;
 require 'footer.php';
 
-function Recherche_Page ($routes, $secureParameter, $metaTitles, $metaDescriptions) {
+function Recherche_Page ($routes, $secureParameter) {
     foreach ($routes as $key => $value) {
         if ($key == $secureParameter) {
-            $_SESSION['countViewPage']++;
             return $key;
         }
     }
