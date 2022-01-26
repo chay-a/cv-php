@@ -86,7 +86,7 @@ if ($is_FormSubmit) {
 <!--Lien pour faire un mail-->
 <a href="mailto:auriane.chay@le-campus-numerique.fr" class="mailink">Envoyez-moi un mail</a>
 <!--Formulaire de contact-->
-<form method="post" action="<?= 'index.php?page=' . $pageContact; ?>">
+<form method="post" action="index.php?page=contact">
     <div class="form_center">
         <div class="form_civilite input">
             <div class="label_civilite label">
@@ -198,7 +198,7 @@ function filter_validate_raison_contact($raisonContactATester) {
 }
 
 function filter_validate_message($messageATester) {
-    if (mb_strlen($messageATester) > 5) {
+    if (strlen(preg_replace('/\s+/um', '', $messageATester)) > 5) {
         return $messageATester;
     } else {
         return false;
