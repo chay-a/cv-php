@@ -46,6 +46,18 @@ if (isset($routes[$queryPage])){
     $pageAffichage = 'pages/404.php';
 }
 
-require 'header.php';
-require $pageAffichage;
-require 'footer.php';
+$render = getInclude($pageAffichage, $queryPage, $metaTitre, $metaDescription);
+echo $render;
+
+function getInclude($includePath, $queryPage, $metaTitre, $metaDescription) {
+    ob_start();
+    $queryPage;
+    $metaTitre;
+    $metaDescription;
+    include 'header.php';
+    include $includePath;
+    include 'footer.php';
+    $page = ob_get_contents();
+    ob_end_clean();
+    return $page;
+}
