@@ -20,7 +20,10 @@ if ($is_FormSubmit) {
                 'filter' => FILTER_SANITIZE_STRING,
                 'flags' => FILTER_FLAG_NO_ENCODE_QUOTES,
         ],
-        'message' => FILTER_SANITIZE_STRING,
+        'message' => [
+            'filter' => FILTER_SANITIZE_STRING,
+            'flags' => FILTER_FLAG_NO_ENCODE_QUOTES,
+        ],
     ];
     $inputsSanitize = filter_input_array(INPUT_POST, $optionsSanitize);
     $optionsValidate = [
