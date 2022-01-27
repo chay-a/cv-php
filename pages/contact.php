@@ -1,64 +1,64 @@
 <?php
 $is_FormSubmit = filter_has_var(INPUT_POST, 'submit');
 $is_Sent = false;
-$msgError = array(
+$msgError = [
     'civilite_selection' => '',
     'name' => '',
     'firstname' => '',
     'email' => '',
     'raison_contact' => '',
     'message' => '',
-);
-$InputsValidate;
+];
+$InputsValidate = NULL;
 if ($is_FormSubmit) {
-    $optionsSanitize = array(
+    $optionsSanitize = [
         'civilite_selection' => FILTER_SANITIZE_STRING,
         'name' => FILTER_SANITIZE_STRING,
         'firstname' =>FILTER_SANITIZE_STRING,
         'email' => FILTER_SANITIZE_EMAIL,
-        'raison_contact' => array(
+        'raison_contact' => [
                 'filter' => FILTER_SANITIZE_STRING,
                 'flags' => FILTER_FLAG_NO_ENCODE_QUOTES,
-        ),
+        ],
         'message' => FILTER_SANITIZE_STRING,
-    );
+    ];
     $inputsSanitize = filter_input_array(INPUT_POST, $optionsSanitize);
-    $optionsValidate = array(
-        'civilite_selection' => array(
+    $optionsValidate = [
+        'civilite_selection' => [
                 'filter' => FILTER_CALLBACK,
                 'options' => 'filter_validate_civilite',
-        ),
-        'name' => array(
+        ],
+        'name' => [
                 'filter' => FILTER_VALIDATE_REGEXP,
-                'options' => array(
+                'options' => [
                 'regexp' => "/[-'’\p{L}\p{M}\p{N}]+/um",
-            ),
-        ),
-        'firstname' =>array(
+            ],
+        ],
+        'firstname' => [
                 'filter' => FILTER_VALIDATE_REGEXP,
-                'options' => array(
+                'options' => [
                 'regexp' => "/[-'’\p{L}\p{M}\p{N}]+/um",
-            ),
-        ),
+            ],
+        ],
         'email' => FILTER_VALIDATE_EMAIL,
-        'raison_contact' => array(
+        'raison_contact' => [
                 'filter' => FILTER_CALLBACK,
                 'options' => 'filter_validate_raison_contact',
-        ),
-        'message' => array(
+        ],
+        'message' => [
                 'filter' => FILTER_CALLBACK,
                 'options' => 'filter_validate_message',
-        ),
-    );
+        ],
+    ];
     $InputsValidate = filter_var_array($inputsSanitize, $optionsValidate);
-    $msgErrorFalse = array(
+    $msgErrorFalse = [
             'civilite_selection' => ' choisir une civilité',
             'name' => 'entrer un nom valide (seulement lettres et tiret)',
             'firstname' => 'entrer un prénom valide (seulement lettres et tiret)',
             'email' => 'entrer un adresse email valide',
             'raison_contact' => 'choisir une raison de contact',
             'message' => 'entrer un message de plus de 5 lettres',
-    );
+    ];
     $nbError = 0;
     foreach ($optionsValidate as $key => $value) {
         if (empty($InputsValidate[$key])) {
