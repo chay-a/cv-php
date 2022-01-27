@@ -2,21 +2,11 @@
 session_start();
 $queryPage = filter_input(INPUT_GET, 'page', FILTER_SANITIZE_ENCODED);
 $pageAffichage = '';
-$routes = array(
-    NULL => 'pages/accueil.php',
-    'hobby' => 'pages/hobby.php',
-    'contact' => 'pages/contact.php',
-);
-$metaTitles = array(
-    NULL => 'Accueil',
-    'hobby' => 'Hobbies',
-    'contact' => 'Contact',
-);
-$metaDescriptions = array(
-    NULL => 'CV en ligne de Auriane Chay avec ses compétences',
-    'hobby' => 'Découvrez les hobbies d\'Auriane Chay',
-    'contact' => 'Contactez Auriane Chay pour bénéficier de ses compétences.',
-);
+$routes = [
+    NULL => ['pages/accueil.php', 'Accueil', 'CV en ligne de Auriane Chay avec ses compétences'],
+    'hobby' => ['pages/hobby.php', 'Hobbies', 'Découvrez les hobbies d\'Auriane Chay'],
+    'contact' => ['pages/contact.php','Contact', 'Contactez Auriane Chay pour bénéficier de ses compétences.'],
+];
 
 //
 if (!isset($_SESSION['dateFirstVisit'])) {
@@ -33,9 +23,9 @@ if (!isset($_SESSION['page'])) {
 }
 
 if (isset($routes[$queryPage])){
-    $metaTitre = $metaTitles[$queryPage];
-    $metaDescription = $metaDescriptions[$queryPage];
-    $pageAffichage = $routes[$queryPage];
+    $metaTitre = $routes[$queryPage][1];
+    $metaDescription = $routes[$queryPage][2];
+    $pageAffichage = $routes[$queryPage][0];
     if ($queryPage != $_SESSION['page']) {
         $_SESSION['countViewPage']++;
     }
