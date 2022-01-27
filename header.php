@@ -24,8 +24,8 @@
     </div>
     <!--Navigation -->
     <nav>
-        <a href="index.php" <?php if (!$queryPage) : ?> class="active" <?php endif; ?>>Accueil</a>
-        <a href="<?php echo 'index.php?page=' . 'hobby'?>" <?php if ($queryPage == 'hobby') : ?> class="active" <?php endif; ?>>Hobbies</a>
-        <a href="<?php echo 'index.php?page=' . 'contact'?>" <?php if ($queryPage == 'contact') : ?> class="active" <?php endif; ?>>Contact</a>
+        <?php foreach($routes as $key => $value) :?>
+            <a href="index.php<?php if ($key !== NULL) { echo "?page=$key";} ?>" <?php if ($queryPage == $key) : ?> class="active" <?php endif; ?>><?= $value[1]?></a>
+        <?php endforeach;?>
     </nav>
 </header>

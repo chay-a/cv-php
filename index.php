@@ -36,14 +36,13 @@ if (isset($routes[$queryPage])){
     $pageAffichage = 'pages/404.php';
 }
 
-$render = getInclude($pageAffichage, $queryPage, $metaTitre, $metaDescription);
+$render = getInclude($pageAffichage, $queryPage, $routes);
 echo $render;
 
-function getInclude($includePath, $queryPage, $metaTitre, $metaDescription) {
+function getInclude($includePath, $queryPage, $routes) {
     ob_start();
     $queryPage;
-    $metaTitre;
-    $metaDescription;
+    $routes;
     include 'header.php';
     include $includePath;
     include 'footer.php';
