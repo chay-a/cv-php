@@ -18,7 +18,7 @@ $metaDescriptions = array(
     'contact' => 'Contactez Auriane Chay pour bénéficier de ses compétences.',
 );
 
-
+//
 if (!isset($_SESSION['dateFirstVisit'])) {
     $date =date('Y-m-d H:i:s');
     $_SESSION['dateFirstVisit'] = $date;
@@ -32,11 +32,10 @@ if (!isset($_SESSION['page'])) {
     $_SESSION['page'] ="";
 }
 
-$key = Recherche_Page($routes, $secureParameter);
-if ($key !== false) {
-    $metaTitre = $metaTitles[$key];
-    $metaDescription = $metaDescriptions[$key];
-    $pageAffichage = $routes[$key];
+if (isset($routes[$secureParameter])){
+    $metaTitre = $metaTitles[$secureParameter];
+    $metaDescription = $metaDescriptions[$secureParameter];
+    $pageAffichage = $routes[$secureParameter];
     if ($secureParameter != $_SESSION['page']) {
         $_SESSION['countViewPage']++;
     }
@@ -50,12 +49,3 @@ if ($key !== false) {
 require 'header.php';
 require $pageAffichage;
 require 'footer.php';
-
-function Recherche_Page ($routes, $secureParameter) {
-    foreach ($routes as $key => $value) {
-        if ($key == $secureParameter) {
-            return $key;
-        }
-    }
-    return false;
-}
