@@ -1,6 +1,6 @@
 <?php
 session_start();
-$secureParameter = filter_input(INPUT_GET, 'page', FILTER_SANITIZE_ENCODED);
+$queryPage = filter_input(INPUT_GET, 'page', FILTER_SANITIZE_ENCODED);
 $pageAffichage = '';
 $routes = array(
     NULL => 'pages/accueil.php',
@@ -32,14 +32,14 @@ if (!isset($_SESSION['page'])) {
     $_SESSION['page'] ="";
 }
 
-if (isset($routes[$secureParameter])){
-    $metaTitre = $metaTitles[$secureParameter];
-    $metaDescription = $metaDescriptions[$secureParameter];
-    $pageAffichage = $routes[$secureParameter];
-    if ($secureParameter != $_SESSION['page']) {
+if (isset($routes[$queryPage])){
+    $metaTitre = $metaTitles[$queryPage];
+    $metaDescription = $metaDescriptions[$queryPage];
+    $pageAffichage = $routes[$queryPage];
+    if ($queryPage != $_SESSION['page']) {
         $_SESSION['countViewPage']++;
     }
-    $_SESSION['page'] = $secureParameter;
+    $_SESSION['page'] = $queryPage;
 } else {
     $metaTitre = 'Page non trouvée';
     $metaDescription = 'Désoléee, page non trouvée';

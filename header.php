@@ -7,9 +7,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="<?php echo $metaDescription; ?>"/>
     <link rel="stylesheet" href="style/style.css">
-    <?php if ($secureParameter == 'hobby') : ?>
+    <?php if ($queryPage == 'hobby') : ?>
         <link rel="stylesheet" href="style/hobby.css">
-    <?php elseif ($secureParameter == 'contact') : ?>
+    <?php elseif ($queryPage == 'contact') : ?>
         <link rel="stylesheet" href="style/contact.css">
     <?php endif; ?>
     <title><?php echo $metaTitre . ' | Auriane Chay'; ?></title>
@@ -24,8 +24,8 @@
     </div>
     <!--Navigation -->
     <nav>
-        <a href="index.php" <?php if (!$secureParameter) : ?> class="active" <?php endif; ?>>Accueil</a>
-        <a href="<?php echo 'index.php?page=' . 'hobby'?>" <?php if ($secureParameter == 'hobby') : ?> class="active" <?php endif; ?>>Hobbies</a>
-        <a href="<?php echo 'index.php?page=' . 'contact'?>" <?php if ($secureParameter == 'contact') : ?> class="active" <?php endif; ?>>Contact</a>
+        <a href="index.php" <?php if (!$queryPage) : ?> class="active" <?php endif; ?>>Accueil</a>
+        <a href="<?php echo 'index.php?page=' . 'hobby'?>" <?php if ($queryPage == 'hobby') : ?> class="active" <?php endif; ?>>Hobbies</a>
+        <a href="<?php echo 'index.php?page=' . 'contact'?>" <?php if ($queryPage == 'contact') : ?> class="active" <?php endif; ?>>Contact</a>
     </nav>
 </header>
